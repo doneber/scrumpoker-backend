@@ -16,7 +16,7 @@ function getRoomById (req, res){
   index >= 0?res.json(db.rooms[index]):res.send('Room not found')
 }
 function postRoom (req, res){
-  const newRoom = {id: req.body.idRoom, name: req.body.nameRoom, users: [{ id: req.body.idUser, name: req.body.nameUser, value:-1 }]}
+  const newRoom = {id: new Date().getTime(), name: req.body.nameRoom, users: []}
   db.rooms.push(newRoom)  
   res.json(newRoom)
 }
@@ -59,18 +59,12 @@ function usersRoom(req, res) {
 function createUserRoom (req, res){
   const index = findIndexById(req.params.roomId)
   if(index >= 0){
-    let sw=false
-    for (let i = 0; i < db.rooms[index].users.length; i++) {
-      if (db.rooms[index].users[i].id == req.body.id) {
-        db.rooms[index].users[i] = {...db.rooms[index].users[i], value: req.body.value}
-        sw=true
-      }
-    }
-    res.json(db.rooms[index])
+    const newUser = {id: new Date().getTime(), name: req.body.name, value: req.body.value }
+    db.rooms[index].users.push(newUser)
+    res.json(newUser)
   } else res.send('Room not found')
   
   const newRoom = {id: new Date().getTime(), name: req.body.name}
-  db.rooms.push(newRoom)  
   res.json(newRoom)
 }
 function patchUserRoom(req, res) {

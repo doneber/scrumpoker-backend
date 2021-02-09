@@ -1,7 +1,8 @@
 const express = require('express')
 const roomsRouter = require('./routes/rooms')
 const app = express()
-
+var cors = require('cors')
+app.use(cors())
 // Middlewares:
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
