@@ -1,0 +1,22 @@
+{
+  "rooms": [
+    {
+      "id": 1,
+      "name": "Name room 1",
+      "users": [
+        { "id": 1, "name": "name 1", "value": 8 },
+        { "id": 2, "name": "name 2", "value": 13 }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Name room 2",
+      "users": [
+        { "id": 3, "name": "name 3", "value": 5 },
+        { "id": 4, "name": "name 4", "value": 8 },
+        { "id": 5, "name": "name 5", "value": 5 },
+        { "id": 6, "name": "name 6", "value": 13 }
+      ]
+    }
+  ]
+}
